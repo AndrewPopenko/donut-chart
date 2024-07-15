@@ -1,0 +1,23 @@
+<svg viewBox="0 0 200 200" class="donut-chart">
+  <circle cx="100" cy="100" r="70" fill="none" stroke="#f0f0f0" stroke-width="30"></circle>
+  <circle
+    *ngFor="let item of data; let i = index"
+    cx="100"
+    cy="100"
+    r="70"
+    [attr.stroke]="item.color"
+    [attr.stroke-dasharray]="getSegmentStyle(i, item).strokeDasharray"
+    [attr.stroke-dashoffset]="-getSegmentStyle(i, item).strokeDashoffset"
+    stroke-width="30"
+    fill="none"
+  ></circle>
+  <text x="100" y="90" text-anchor="middle" alignment-baseline="middle" font-size="20">
+    {{ total }} kg CO₂
+  </text>
+  <text x="100" y="110" text-anchor="middle" alignment-baseline="middle" font-size="10">
+    Приблизительный углеродный след
+  </text>
+  <g *ngFor="let item of data; let i = index" [attr.transform]="getLabelTransform(i)">
+    <image [attr.href]="item.icon" width="20" height="20"></image>
+  </g>
+</svg>

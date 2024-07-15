@@ -1,0 +1,11 @@
+.svg-container {
+  height: 600px;
+  width: 600px;
+  margin: 100px 100px;
+}
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
