@@ -16,12 +16,12 @@ export class DonutChartSvgComponent
   // implements OnChanges
 {
   @Input() data: ChartData[] = [];
-  @Input() total= 0;
+  total= 0;
   circumference = 2 * Math.PI * 70; // for a radius of 70
 
-  // ngOnChanges() {
-  //   this.total = this.data.reduce((sum, item) => sum + item.value, 0);
-  // }
+  ngOnChanges() {
+    this.total = this.data.reduce((sum, item) => sum + item.value, 0);
+  }
 
   getOffset(index: number): number {
     return (
